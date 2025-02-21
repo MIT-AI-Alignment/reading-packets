@@ -11,7 +11,7 @@ If you're looking for AI Safety Reading PDFs, visit [MIT AI Alignment's public r
 
 ## Setup
 
-To install GatPack, you can run (or click `install.command`:
+To install GatPack, you can run (or click `install.command`):
 
 ```bash
 curl -LsSf https://raw.githubusercontent.com/GatlenCulp/gatpack/main/install.sh | sh
