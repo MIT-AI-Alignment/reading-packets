@@ -1,6 +1,5 @@
-# GatPack -- GatPack Project
+# MAIA's Reading Packets
 
-This sample project is created by [GatPack](<>), a Python templating tool.
 
 ## About this project
 
@@ -8,26 +7,12 @@ Creates PDF packets for the AI Safety Fundamentals Reading Group
 
 ## Other Resources
 
-If you're looking for AI Safety Reading PDFs, visit [MIT AI Alignment's public repository of Readings](https://airtable.com/app6h2R2QQuhvFYVq/shr6HR8IkYktpdmA8/tbliHUCwDwu4I7Opl). Brought to you by Gatlen 😎
+If you're looking for AI Safety Reading PDFs, visit [MIT AI Alignment's public repository of Readings](https://airtable.com/app6h2R2QQuhvFYVq/shr6HR8IkYktpdmA8/tbliHUCwDwu4I7Opl)
 
 ## Setup
 
-To install GatPack, you will need python and LaTeX installed, then you can run
+To install GatPack, you can run (or click `install.command`:
 
 ```bash
-pip install gatpack --global
-```
-
-Once you are in this directory, run the following to make sure it is installed
-
-```bash
-gatpack
-```
-
-<!-- And you will receive a list of print options.  -->
-
-You can run the example project with
-
-```bash
-./build.sh
+curl -LsSf https://raw.githubusercontent.com/GatlenCulp/gatpack/main/install.sh | sh
 ```
