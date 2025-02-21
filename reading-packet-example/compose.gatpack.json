@@ -1,0 +1,92 @@
+{
+  "$schema": "https://raw.githubusercontent.com/GatlenCulp/gatpack/refs/heads/feature/compose-actions/gatpack/schema/json/GatPackCompose.schema.json",
+  "version": "1.0",
+  "name": "Intro Fellowship Reading Packet",
+  "description": "Packet for CAIAC's Spring 2025 Intro Fellowship",
+  "context": {
+    "program_long_name": "Intro Fellowship",
+    "time_period": "Spring 2025",
+    "chron_info": "WEEK 1",
+    "title": "Introduction to using gatpack",
+    "subtitle": "READINGS",
+    "primary_color": "0B0D63",
+    "primary_color_faded": "789BD6",
+    "core_readings": [
+      {
+        "title": "Neural Networks",
+        "read_on_device": true,
+        "subsection": "Chapters 1-6",
+        "author": "3Blue1Brown",
+        "year": 2024,
+        "url": "https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&feature=shared",
+        "thumbnail_path": ""
+      },
+      {
+        "title": "Hello World",
+        "read_on_device": true,
+        "subsection": "Chapters 1-6",
+        "author": "3Blue1Brown",
+        "year": 2024,
+        "url": "https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&feature=shared",
+        "thumbnail_path": ""
+      }
+    ],
+    "further_readings": [
+      {
+        "title": "A short introduction to machine learning",
+        "subsection": "",
+        "author": "Ngo",
+        "year": 2021,
+        "url": "https://www.alignmentforum.org/posts/qE73pqxAZmeACsAdF/a-short-introduction-to-machine-learning",
+        "thumbnail_path": ""
+      },
+      {
+        "title": "Machine Learning for Humans, Part 2.1: Supervised Learning",
+        "subsection": "",
+        "author": "Maini and Sabri",
+        "year": 2017,
+        "url": "https://medium.com/@v_maini/supervised-learning-740383a2feab",
+        "thumbnail_path": ""
+      }
+    ]
+  },
+  "pipelines":[
+    {
+      "description": "Create the full reading packet.",
+      "id": "reading-packet",
+      "steps": [
+        {
+          "name": "Render cover page",
+          "from": "01_cover/cover.jinja.tex",
+          "to": "01_cover/cover.pdf"
+        },
+        {
+          "name": "Render device readings page",
+          "from": "02_device-readings/device_readings.jinja.tex",
+          "to": "02_device-readings/device_readings.pdf"
+        },
+        {
+          "name": "Render further readings page",
+          "from": "04_further-readings/further_readings.jinja.tex",
+          "to": "04_further-readings/further_readings.pdf"
+        },
+        {
+          "name": "Combine all readings into packet.pdf",
+          "combine": [
+            "01_cover/cover.pdf",
+            "02_device-readings/device_readings.pdf",
+            "03_core-readings/*.pdf",
+            "04_further-readings/further_readings.pdf"
+          ],
+          "to": "output/packet.pdf"
+        },
+        {
+          "name": "Add footer to PDF",
+          "from": "output/packet.pdf",
+          "to": "output/packet-with-footers.pdf",
+          "text": "{n} of {N}"
+        }
+      ]
+    }
+  ]
+}
